@@ -1,2 +1,1 @@
-#PYTHON
-It is my First Repository
+# It is my First Repository

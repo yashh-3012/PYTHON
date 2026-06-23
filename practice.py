@@ -14,6 +14,9 @@ def finger_cricket():
             c+=b
 def odd_even():
         choice=input('Enter your choice (odd/even): ')
+        if choice.lower() not in ['odd','even']:
+            print('Invalid choice')
+            return
         a=random.randint(1,6)
         b=int(input('enter your number'))
         c=a+b

@@ -64,9 +64,22 @@ def rock_paper_scissors():
         print('You win!')
     else:
         print('You lose!')
+import time
+def Time():
+    t=time.strftime('%H:%M:%S')
+    print('It\'s',t)
+    T=int(time.strftime('%H'))
+    if T>=4 and T<12:
+        print('good morning')
+    elif T>12 and T<16:
+        print('Good Afternoon')
+    elif T>16 and T<20:
+        print('Good Evening')
+    else:
+        print('Good Night')
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors')
-    choice=int(input('which game do you want to play?'))
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time')
+    choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
     elif choice==2:
@@ -75,5 +88,7 @@ while True:
         number_guessing()
     elif choice==4:
         rock_paper_scissors()
+    elif choice==5:
+        Time()
     else:
         print('Invalid choice')

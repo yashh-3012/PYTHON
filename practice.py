@@ -77,8 +77,36 @@ def Time():
         print('Good Evening')
     else:
         print('Good Night')
+def reverse_num():
+    n=int(input('Enter a number: '))
+    c=0
+    while n>0:
+        s=n%10
+        c=c*10+s
+        n//=10
+    print('Reversed number:',c)
+def check_palindrome():
+    n=input('Enter the entity to check if it is a palindrome: ')
+    if n.isdigit():
+        n=int(n)
+        o=n
+        r=0
+        while n>0:
+            s=n%10
+            r=r*10+s
+            n//=10
+        if o==r:
+            print('The number is a palindrome')
+        else:
+            print('The number is not a palindrome')
+    else:
+        n=n.lower()
+        if n==n[::-1]:
+            print('The string is a palindrome')
+        else:
+            print('The string is not a palindrome')
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -90,5 +118,12 @@ while True:
         rock_paper_scissors()
     elif choice==5:
         Time()
+    elif choice==6:
+        reverse_num()
+    elif choice==7:
+        check_palindrome()
+    elif choice==8:
+        print('Exiting...')
+        break
     else:
         print('Invalid choice')

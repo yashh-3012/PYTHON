@@ -105,8 +105,16 @@ def check_palindrome():
             print('The string is a palindrome')
         else:
             print('The string is not a palindrome')
+def voting():
+    print('Welcome to the voting system \n To whom you want to vote for? \n 1.Yash\n2. Dewansh')
+    v=int(input('Enter your voting choice: '))
+    match v:
+        case 1:
+            print('You have voted for Yash')
+        case 2:
+            print('You have voted for Dewansh')
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -123,7 +131,9 @@ while True:
     elif choice==7:
         check_palindrome()
     elif choice==8:
-        print('Exiting...')
+        voting()
+    elif choice==9:
+        print('Exiting the program...')
         break
     else:
         print('Invalid choice')

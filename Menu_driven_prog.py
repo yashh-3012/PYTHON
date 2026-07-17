@@ -132,8 +132,15 @@ def check_ap(**numbers):
         print('The numbers are in AP')
     else:
         print('The numbers are not in AP')
+def listof_cubes():
+    x=int(input('Enter starting value: '))
+    y=int(input('Enter ending value: '))
+    num=[i**3 for i in range(x,y+1)]
+    print(num)
+    for i in range(x,y+1):
+        print('cube of',i,'is',i**3)
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -160,6 +167,8 @@ while True:
         numbers=eval(input('Enter three numbers a, b, c in dictionary format'))
         check_ap(**numbers)   
     elif choice==12:
+        listof_cubes()
+    elif choice==13:
         print('Exiting the program...')
         break
     else:

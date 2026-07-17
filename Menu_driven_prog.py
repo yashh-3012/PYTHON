@@ -113,8 +113,15 @@ def voting():
             print('You have voted for Yash')
         case 2:
             print('You have voted for Dewansh')
+def do_while():
+    while True:
+        a=input('Enter your string: ')
+        print(a)
+        if a.islower():
+            print('loop breaked because you entered a lowercase string')            
+            break
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -133,6 +140,8 @@ while True:
     elif choice==8:
         voting()
     elif choice==9:
+        do_while()
+    elif choice==10:    
         print('Exiting the program...')
         break
     else:

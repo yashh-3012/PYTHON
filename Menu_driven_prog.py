@@ -120,8 +120,20 @@ def do_while():
         if a.islower():
             print('loop breaked because you entered a lowercase string')            
             break
+def additon(*numbers):
+    print(type(numbers))
+    sum=0
+    for i in numbers:
+        sum+=i
+    print('The sum of the numbers is:',sum)
+def check_ap(**numbers):
+    print(type(numbers))
+    if numbers['b']-numbers['a']==numbers['c']-numbers['b']:
+        print('The numbers are in AP')
+    else:
+        print('The numbers are not in AP')
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -141,7 +153,13 @@ while True:
         voting()
     elif choice==9:
         do_while()
-    elif choice==10:    
+    elif choice==10:
+        numbers=eval(input('Enter numbers separated by commas: '))
+        additon(*numbers)
+    elif choice==11:
+        numbers=eval(input('Enter three numbers a, b, c in dictionary format'))
+        check_ap(**numbers)   
+    elif choice==12:
         print('Exiting the program...')
         break
     else:

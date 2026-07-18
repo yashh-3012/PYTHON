@@ -139,8 +139,23 @@ def listof_cubes():
     print(num)
     for i in range(x,y+1):
         print('cube of',i,'is',i**3)
+def KBC():
+    price=0
+    ques=['what is the capital of India?','what is the full form of GDP?','who is father of computer?']
+    ans=['New Delhi','Gross Domestic Product','Charles Babbage']
+    print('Welcome to KBC!')
+    for x in ques:
+        print(x)
+        user_ans=input('Enter your answer: ')
+        if user_ans.lower()==ans[ques.index(x)].lower():
+            print('Correct answer!')
+            price+=1000
+        else:
+            print('Incorrect answer! The correct answer is:',ans[ques.index(x)])
+            break
+    print('Your total prize money is:',price)
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -169,6 +184,8 @@ while True:
     elif choice==12:
         listof_cubes()
     elif choice==13:
+        KBC()
+    elif choice==14:
         print('Exiting the program...')
         break
     else:

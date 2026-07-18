@@ -1,1 +1,2 @@
 # It is my First Repository
+# ADDING THE CODE OF THE SKILLS I AM LEANING IN PYTHON

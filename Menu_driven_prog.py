@@ -160,8 +160,21 @@ def fibonacci(n):
         return n
     else:
         return fibonacci(n-1) + fibonacci(n-2)
+def set_methods():
+    s1={1,2,3,4,5}
+    s2={4,5,6,7,8}
+    print('Union:',s1.union(s2))
+    print('Intersection:',s1.intersection(s2))
+    print('Difference:',s1.difference(s2))
+    print('Symmetric Difference:',s1.symmetric_difference(s2))
+    print('Is s1 a subset of s2?',s1.issubset(s2))
+    print('Is s1 a superset of s2?',s1.issuperset(s2))
+    s1.add(6)
+    print('After adding 6 to s1:',s1)
+    s1.remove(3)
+    print('After removing 3 from s1:',s1)
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -199,6 +212,8 @@ while True:
         print(l)
         print(fibonacci.__doc__)
     elif choice==15:    
+        set_methods()
+    elif choice==16:    
         print('Exiting the program...')
         break
     else:

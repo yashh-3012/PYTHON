@@ -154,8 +154,15 @@ def KBC():
             print('Incorrect answer! The correct answer is:',ans[ques.index(x)])
             break
     print('Your total prize money is:',price)
+def fibonacci(n):
+    '''returns a list of fibonacci series upto n terms'''
+    if n<=1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+print(l)
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -186,6 +193,12 @@ while True:
     elif choice==13:
         KBC()
     elif choice==14:
+        n = int(input("Enter the no. of terms you want to print: "))
+        l = []
+        for i in range(n):
+            l.append(fibonacci(i))
+        print(l)
+    elif choice==15:    
         print('Exiting the program...')
         break
     else:

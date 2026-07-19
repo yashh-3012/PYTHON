@@ -160,7 +160,6 @@ def fibonacci(n):
         return n
     else:
         return fibonacci(n-1) + fibonacci(n-2)
-print(l)
 while True:
     print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Exit')
     choice=int(input('enter your choice'))
@@ -198,6 +197,7 @@ while True:
         for i in range(n):
             l.append(fibonacci(i))
         print(l)
+        print(fibonacci.__doc__)
     elif choice==15:    
         print('Exiting the program...')
         break

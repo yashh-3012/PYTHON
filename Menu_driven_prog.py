@@ -1,4 +1,5 @@
 import random
+# SOME RANDOM GAMES JUST FOR REVISION OF MY 12TH 
 def finger_cricket():
     c=0  
     while True:
@@ -64,6 +65,7 @@ def rock_paper_scissors():
         print('You win!')
     else:
         print('You lose!')
+# USED TIME MODULE TO GET THE CURRENT TIME AND GREET THE USER ACCORDINGLY
 import time
 def Time():
     t=time.strftime('%H:%M:%S')
@@ -108,7 +110,7 @@ def check_palindrome():
 def voting():
     print('Welcome to the voting system \n To whom you want to vote for? \n 1.Yash\n2. Dewansh')
     v=int(input('Enter your voting choice: '))
-    match v:
+    match v:                                        #match case statements
         case 1:
             print('You have voted for Yash')
         case 2:
@@ -120,13 +122,13 @@ def do_while():
         if a.islower():
             print('loop breaked because you entered a lowercase string')            
             break
-def additon(*numbers):
+def additon(*numbers):                      # arbitrary arguments(variable length argument) process as tuple 
     print(type(numbers))
     sum=0
     for i in numbers:
         sum+=i
     print('The sum of the numbers is:',sum)
-def check_ap(**numbers):
+def check_ap(**numbers):                        # keyword arbitrary arguments(variable length argument) process as dictionary
     print(type(numbers))
     if numbers['b']-numbers['a']==numbers['c']-numbers['b']:
         print('The numbers are in AP')
@@ -155,23 +157,22 @@ def KBC():
             break
     print('Your total prize money is:',price)
 def fibonacci(n):
-    '''returns a list of fibonacci series upto n terms'''
+    '''returns a list of fibonacci series upto n terms'''           #doc string
     if n<=1:
         return n
     else:
-        return fibonacci(n-1) + fibonacci(n-2)
+        return fibonacci(n-1) + fibonacci(n-2)                      #recursion statement
 def set_methods():
     s1={1,2,3,4,5}
     s2={4,5,6,7,8}
-    print('Union:',s1.union(s2))
-    print('Intersection:',s1.intersection(s2))
-    print('Difference:',s1.difference(s2))
-    print('Symmetric Difference:',s1.symmetric_difference(s2))
-    print('Is s1 a subset of s2?',s1.issubset(s2))
-    print('Is s1 a superset of s2?',s1.issuperset(s2))
-    s1.add(6)
+    print('Union:',s1.union(s2))                                     # in simple word this func add boths sets and prints all unique elements
+    print('Intersection:',s1.intersection(s2))                       #it prints the common elements in both sets
+    print('Difference:',s1.difference(s2))                           # it removes the common elements from s1 
+    print('Symmetric Difference:',s1.symmetric_difference(s2))       # it removes the common elements from both sets 
+    print('Is s1 a superset of s2?',s1.issuperset(s2))               # it checks if s1 is a superset of s2 or not
+    s1.add(6)                                                        # add a new element
     print('After adding 6 to s1:',s1)
-    s1.remove(3)
+    s1.remove(3)                                                     # removes the given element
     print('After removing 3 from s1:',s1)
 while True:
     print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. Exit')

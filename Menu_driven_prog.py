@@ -174,8 +174,16 @@ def set_methods():
     print('After adding 6 to s1:',s1)
     s1.remove(3)                                                     # removes the given element
     print('After removing 3 from s1:',s1)
+def square_root():
+    import math 
+    try:                                                            #try block is used to test a block of code for errors
+        x=int(input('Enter a number: '))
+        print(f'Square root of {x} is {math.sqrt(x)}')
+    except Exception as e:                                          #except block is used to handle the error 
+        print(e)                                                    # e is the error that has occured
+    print('end of the code')
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -215,6 +223,8 @@ while True:
     elif choice==15:    
         set_methods()
     elif choice==16:    
+        square_root()
+    elif choice==17:    
         print('Exiting the program...')
         break
     else:

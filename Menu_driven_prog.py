@@ -181,7 +181,9 @@ def square_root():
         print(f'Square root of {x} is {math.sqrt(x)}')
     except Exception as e:                                          #except block is used to handle the error 
         print(e)                                                    # e is the error that has occured
-    print('end of the code')
+        print('end of the code')
+    finally:                                                        #finally block it is executed wether error occured or not 
+        print('i am inside finally block i am always executed')
 while True:
     print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. Exit')
     choice=int(input('enter your choice'))

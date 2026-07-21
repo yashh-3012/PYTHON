@@ -184,8 +184,15 @@ def square_root():
         print('end of the code')
     finally:                                                        #finally block it is executed wether error occured or not 
         print('i am inside finally block i am always executed')
+def sq_func():
+    print(' What is the range of the f(x)=x^2')
+    r=int(input("enter the range :"))
+    if r<0:
+        raise ValueError(f'{r} DOESN\'T FALL IN THE RANGE')          # raise keyword is used to raise an error
+    else:
+        print(f'{r} Falls in the range of f(x)')            
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. square function\n18. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -226,7 +233,9 @@ while True:
         set_methods()
     elif choice==16:    
         square_root()
-    elif choice==17:    
+    elif choice==17:
+        sq_func()
+    elif choice==18:    
         print('Exiting the program...')
         break
     else:

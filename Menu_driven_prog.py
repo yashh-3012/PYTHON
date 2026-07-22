@@ -190,9 +190,28 @@ def sq_func():
     if r<0:
         raise ValueError(f'{r} DOESN\'T FALL IN THE RANGE')          # raise keyword is used to raise an error
     else:
-        print(f'{r} Falls in the range of f(x)')            
+        print(f'{r} Falls in the range of f(x)')
+def word_guessing():
+    l=['yash','hello','dewansh','india','google']
+    w=''.join(random.choice(l).split())
+    print('your word has',len(w),'letters')
+    guessed_letters = []
+    guess=0
+    while True:
+        if guess==10:
+            print('all guesses are over')
+            break
+        x=input('enter the letter')
+        guess+=1
+        if x in w:
+            guessed_letters.append(x)
+            display:str= "".join(x if x in guessed_letters else "_" for x in w)
+            print(display)
+        if display == w:
+            print('you guessed the word')
+            break
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. square function\n18. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -235,7 +254,9 @@ while True:
         square_root()
     elif choice==17:
         sq_func()
-    elif choice==18:    
+    elif choice==18:
+        word_guessing()
+    elif choice==19:    
         print('Exiting the program...')
         break
     else:

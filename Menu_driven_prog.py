@@ -143,17 +143,16 @@ def listof_cubes():
         print('cube of',i,'is',i**3)
 def KBC():
     price=0
-    ques=['what is the capital of India?','what is the full form of GDP?','who is father of computer?']
-    ans=['New Delhi','Gross Domestic Product','Charles Babbage']
+    ques_ans=[['what is the capital of India?','new delhi'],['what is the full form of GDP?','gross domestic product'],['who is father of computer?','charles babagge']]
     print('Welcome to KBC!')
-    for x in ques:
-        print(x)
+    for i in ques_ans:
+        print(i[0])
         user_ans=input('Enter your answer: ')
-        if user_ans.lower()==ans[ques.index(x)].lower():
+        if user_ans.lower()==i[1].lower():
             print('Correct answer!')
             price+=1000
         else:
-            print('Incorrect answer! The correct answer is:',ans[ques.index(x)])
+            print('Incorrect answer! The correct answer is:',i[1])
             break
     print('Your total prize money is:',price)
 def fibonacci(n):

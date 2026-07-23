@@ -192,7 +192,18 @@ def sq_func():
         print(f'{r} Falls in the range of f(x)')
 def word_guessing():
     l=['yash','hello','dewansh','india','google']
+    hint=['my name','greeting starts from h','my friend\'s name','country name ends with a','one of the top tech company']
     w=''.join(random.choice(l).split())
+    if w=='yash':
+        print(hint[0])
+    elif w=='hello':
+        print(hint[1])
+    elif w=='dewansh':
+        print(hint[2])
+    elif w=='india':
+        print(hint[3])
+    else:
+        print(hint[4])    
     print('your word has',len(w),'letters')
     guessed_letters = []
     guess=0

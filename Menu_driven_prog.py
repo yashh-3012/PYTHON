@@ -142,17 +142,19 @@ def listof_cubes():
     for i in range(x,y+1):
         print('cube of',i,'is',i**3)
 def KBC():
+    print('===:-:-:-WELCOME TO KBC-:-:-:===')
     price=0
-    ques_ans=[['what is the capital of India?','new delhi'],['what is the full form of GDP?','gross domestic product'],['who is father of computer?','charles babagge']]
-    print('Welcome to KBC!')
-    for i in ques_ans:
-        print(i[0])
-        user_ans=input('Enter your answer: ')
-        if user_ans.lower()==i[1].lower():
-            print('Correct answer!')
-            price+=1000
+    ques_ans=[['what is the capital of India?','new delhi'],['what is the full form of GDP?','gross domestic product'],['who is father of computer?','charles babagge'],['what is the full form FAQ','frequently asked questions'],['what is the other name for the integration','primitive'],['who wrote the national anthem','rabindranath tagore']]
+    levels=[1000,2000,5000,10000,25000,50000]
+    for i in levels:
+        print(f'LEVEL{levels.index(i)+1}')
+        print(f'Your question is{ques_ans[levels.index(i)][0]}')
+        user_ans=input('Enter your ans')
+        if user_ans.lower()==ques_ans[levels.index(i)][1].lower():
+            print('correct answer')
+            price+=i
         else:
-            print('Incorrect answer! The correct answer is:',i[1])
+            print('Incorrect answer! The correct answer is:',ques_ans[levels.index(i)][1])
             break
     print('Your total prize money is:',price)
 def fibonacci(n):

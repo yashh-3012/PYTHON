@@ -222,8 +222,37 @@ def word_guessing():
         if display == w:
             print('you guessed the word')
             break
+def code_decode():
+    import random
+    print('DO YOU WANT TO CODE OR DECODE\n1.CODE\n2.DECODE')
+    x=int(input('enter your choice'))
+    match x:
+        case 1:
+            s=input('enter the string you want to code')
+            w=[]
+            for i in s.split():
+                if len(i)>=3:
+                    x=i[1:]+i[0]
+                    y=[chr(i) for i in range(ord('a'),ord('z')+1)]
+                    for i in range(3):
+                        x=random.choice(y)+x+random.choice(y)
+                    w.append(x)
+                else:
+                    w.append(i[::-1])
+            print('Coded string:',' '.join(w))
+        case 2:
+            s=input('enter the string you want decode')
+            a=[]
+            for i in s.split():
+                if len(i)>=3:
+                    x=i[3:-3]
+                    w=x[-1]+x[:-1]
+                    a.append(w)
+                else:
+                    a.append(i[::-1])
+            print('Decoded string:',' '.join(a))                    
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -268,7 +297,9 @@ while True:
         sq_func()
     elif choice==18:
         word_guessing()
-    elif choice==19:    
+    elif choice==19:
+        code_decode()
+    elif choice==20:    
         print('Exiting the program...')
         break
     else:

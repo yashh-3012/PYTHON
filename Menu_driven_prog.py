@@ -146,11 +146,11 @@ def KBC():
     price=0
     ques_ans=[['what is the capital of India?','new delhi'],['what is the full form of GDP?','gross domestic product'],['who is father of computer?','charles babagge'],['what is the full form FAQ','frequently asked questions'],['what is the other name for the integration','primitive'],['who wrote the national anthem','rabindranath tagore']]
     levels=[1000,2000,5000,10000,25000,50000]
-    for i in levels:
+    for index,i in enumerate(levels):                       #used enumerate func to get index and values at same time
         print(f'LEVEL{levels.index(i)+1}')
-        print(f'Your question is{ques_ans[levels.index(i)][0]}')
+        print(f'Your question is{ques_ans[index][0]}')
         user_ans=input('Enter your ans')
-        if user_ans.lower()==ques_ans[levels.index(i)][1].lower():
+        if user_ans.lower()==ques_ans[index][1].lower():
             print('correct answer')
             price+=i
         else:

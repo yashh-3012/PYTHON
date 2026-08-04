@@ -45,8 +45,9 @@ def number_guessing():
             print('Too low!')
         elif guess>number:
             print('Too high!')
-        if guess!=number:
-            print('Try again!')
+        else:
+            break
+        print('Try again!')
     if guess==number:
         print('Congratulations! You guessed the number in',attempts,'attempts.')
     else:

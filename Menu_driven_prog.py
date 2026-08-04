@@ -76,7 +76,7 @@ def Time():
         print('good morning')
     elif T>12 and T<16:
         print('Good Afternoon')
-    elif T>16 and T<20:
+    elif T>=16 and T<20:
         print('Good Evening')
     else:
         print('Good Night')
@@ -180,7 +180,7 @@ def square_root():
     import math 
     try:                                                            #try block is used to test a block of code for errors
         x=int(input('Enter a number: '))
-        print(f'Square root of {x} is {math.sqrt(x)}')
+        print(f'Square root of {x} is {math.sqrt(x):.2f}')                          #math.sqrt() is used to find the square root of a number
     except Exception as e:                                          #except block is used to handle the error 
         print(e)                                                    # e is the error that has occured
         print('end of the code')
@@ -188,11 +188,14 @@ def square_root():
         print('i am inside finally block i am always executed')
 def sq_func():
     print(' What is the range of the f(x)=x^2')
-    r=int(input("enter the range :"))
+    r=int(input("enter a number that falls in the range: of f(x)"))
+    l=[i**2 for i in range(10000)]
     if r<0:
         raise ValueError(f'{r} DOESN\'T FALL IN THE RANGE')          # raise keyword is used to raise an error
-    else:
+    if r in l:
         print(f'{r} Falls in the range of f(x)')
+    else:
+        raise ValueError(f'{r} DOESN\'T FALL IN THE RANGE')     
 def word_guessing():
     l=['yash','hello','dewansh','india','google']
     hint=['my name','greeting starts from h','my friend\'s name','country name ends with a','one of the top tech company']

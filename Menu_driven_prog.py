@@ -254,9 +254,12 @@ def code_decode():
                     a.append(w)
                 else:
                     a.append(i[::-1])
-            print('Decoded string:',' '.join(a))                    
+            print('Decoded string:',' '.join(a))       
+def import_module():
+    import yash
+    yash.yash()             
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n 15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -303,7 +306,9 @@ while True:
         word_guessing()
     elif choice==19:
         code_decode()
-    elif choice==20:    
+    elif choice==20:
+        import_module()
+    elif choice==21:    
         print('Exiting the program...')
         break
     else:

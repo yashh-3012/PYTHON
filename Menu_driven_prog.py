@@ -257,9 +257,12 @@ def code_decode():
             print('Decoded string:',' '.join(a))       
 def import_module():
     import yash
-    yash.yash()             
+    yash.yash() 
+fx = lambda x: print('\n'.join(f' {x} x {i} = {x * i}' for i in range(1,int(input('Enter the till where you want to print the table: '))+1)))  # lambda function to print multiplication table
+def table(f,n):
+    print(f(n))
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Exit')
     choice=int(input('enter your choice'))
     if choice==1:
         finger_cricket()
@@ -308,7 +311,9 @@ while True:
         code_decode()
     elif choice==20:
         import_module()
-    elif choice==21:    
+    elif choice==21:
+        table(fx, int(input('Enter the number for which you want to print the multiplication table: ')))    
+    elif choice==22:    
         print('Exiting the program...')
         break
     else:

@@ -1,5 +1,48 @@
 import random
-# SOME RANDOM GAMES JUST FOR REVISION OF MY 12TH 
+import json
+# SOME RANDOM GAMES JUST FOR REVISION OF MY 12TH
+# JSON + FILE HANDLING: scores survive after you close the program
+SCORES_FILE = 'scores.json'
+DEFAULT_SCORES = {
+    'finger_cricket': {'best': 0, 'plays': 0},
+    'odd_even': {'wins': 0, 'losses': 0},
+    'number_guessing': {'wins': 0, 'best_attempts': None},
+    'rock_paper_scissors': {'wins': 0, 'losses': 0, 'ties': 0},
+    'kbc': {'best_prize': 0, 'plays': 0},
+}
+
+def load_scores():
+    '''read saved scores from scores.json; if the file is missing, start fresh'''
+    try:
+        with open(SCORES_FILE, 'r') as f:          # with closes the file automatically
+            data = json.load(f)                    # json.load turns file text into a dict
+        for game, stats in DEFAULT_SCORES.items(): # keep older files working if we add games later
+            data.setdefault(game, stats.copy())
+        return data
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {game: stats.copy() for game, stats in DEFAULT_SCORES.items()}
+
+def save_scores(data):
+    '''write the dict back to scores.json'''
+    with open(SCORES_FILE, 'w') as f:
+        json.dump(data, f, indent=2)               # indent=2 makes the file easy to read
+
+def show_leaderboard():
+    data = load_scores()
+    print('\n===== LEADERBOARD =====')
+    fc = data['finger_cricket']
+    print(f"Finger Cricket   best {fc['best']}  (played {fc['plays']})")
+    oe = data['odd_even']
+    print(f"Odd / Even       wins {oe['wins']}  losses {oe['losses']}")
+    ng = data['number_guessing']
+    best = ng['best_attempts'] if ng['best_attempts'] is not None else '-'
+    print(f"Number Guessing  wins {ng['wins']}  best attempts {best}")
+    rps = data['rock_paper_scissors']
+    print(f"Rock Paper Scissors  wins {rps['wins']}  losses {rps['losses']}  ties {rps['ties']}")
+    kbc = data['kbc']
+    print(f"KBC              best prize {kbc['best_prize']}  (played {kbc['plays']})")
+    print('=======================\n')
+
 def finger_cricket():
     c=0  
     while True:
@@ -10,6 +53,12 @@ def finger_cricket():
             continue
         if a==b:
             print('OUT!!!\n','Your total score is:',c)
+            scores=load_scores()
+            scores['finger_cricket']['plays']+=1
+            if c>scores['finger_cricket']['best']:
+                scores['finger_cricket']['best']=c
+                print('New high score!')
+            save_scores(scores)
             break
         else:
             c+=b
@@ -25,10 +74,14 @@ def odd_even():
             y='even'
         else:
             y='odd'
+        scores=load_scores()
         if choice.lower()==y:
             print('YOU WIN !!!\n','Computer\'s number:',a,'Your number:',b,'Result:',c)
+            scores['odd_even']['wins']+=1
         else:
             print('YOU LOSE !!!\n','Computer\'s number:',a,'Your number:',b,'Result:',c)
+            scores['odd_even']['losses']+=1
+        save_scores(scores)
 def number_guessing():
     number=random.randint(1,100)
     attempts=0 
@@ -50,6 +103,13 @@ def number_guessing():
         print('Try again!')
     if guess==number:
         print('Congratulations! You guessed the number in',attempts,'attempts.')
+        scores=load_scores()
+        scores['number_guessing']['wins']+=1
+        best=scores['number_guessing']['best_attempts']
+        if best is None or attempts<best:
+            scores['number_guessing']['best_attempts']=attempts
+            print('New best attempt record!')
+        save_scores(scores)
     else:
         print('The number was:',number)
 def rock_paper_scissors():
@@ -60,12 +120,17 @@ def rock_paper_scissors():
         print('Invalid choice')
         return
     print('Computer\'s choice:',computer_choice)
+    scores=load_scores()
     if user_choice.lower()==computer_choice:
         print('It\'s a tie!')
+        scores['rock_paper_scissors']['ties']+=1
     elif (user_choice.lower()=='rock' and computer_choice=='scissors') or (user_choice.lower()=='paper' and computer_choice=='rock') or (user_choice.lower()=='scissors' and computer_choice=='paper'):
         print('You win!')
+        scores['rock_paper_scissors']['wins']+=1
     else:
         print('You lose!')
+        scores['rock_paper_scissors']['losses']+=1
+    save_scores(scores)
 # USED TIME MODULE TO GET THE CURRENT TIME AND GREET THE USER ACCORDINGLY
 import time
 def Time():
@@ -158,6 +223,12 @@ def KBC():
             print('Incorrect answer! The correct answer is:',ques_ans[levels.index(i)][1])
             break
     print('Your total prize money is:',price)
+    scores=load_scores()
+    scores['kbc']['plays']+=1
+    if price>scores['kbc']['best_prize']:
+        scores['kbc']['best_prize']=price
+        print('New KBC high prize!')
+    save_scores(scores)
 def fibonacci(n):
     '''returns a list of fibonacci series upto n terms'''           #doc string
     if n<=1:
@@ -262,8 +333,12 @@ fx = lambda x: print('\n'.join(f' {x} x {i} = {x * i}' for i in range(1,int(inpu
 def table(f,n):
     print(f(n))
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Exit')
-    choice=int(input('enter your choice'))
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Leaderboard\n23. Calculator\n24. Exit')
+    try:
+        choice=int(input('enter your choice'))
+    except ValueError:
+        print('Please enter a number from the menu')
+        continue
     if choice==1:
         finger_cricket()
     elif choice==2:
@@ -313,7 +388,13 @@ while True:
         import_module()
     elif choice==21:
         table(fx, int(input('Enter the number for which you want to print the multiplication table: ')))    
-    elif choice==22:    
+    elif choice==22:
+        show_leaderboard()
+    elif choice==23:
+        from calculator import open_calculator
+        print('Opening calculator window...')
+        open_calculator()
+    elif choice==24:    
         print('Exiting the program...')
         break
     else:

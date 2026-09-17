@@ -332,8 +332,19 @@ def import_module():
 fx = lambda x: print('\n'.join(f' {x} x {i} = {x * i}' for i in range(1,int(input('Enter the till where you want to print the table: '))+1)))  # lambda function to print multiplication table
 def table(f,n):
     print(f(n))
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
+        if not swapped:
+            break
+        print(f'After pass {i+1}: {arr}')
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Leaderboard\n23. Calculator\n24. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Leaderboard\n23. Calculator\n24.Bubble Sort\n25. Exit')
     try:
         choice=int(input('enter your choice'))
     except ValueError:
@@ -395,6 +406,8 @@ while True:
         print('Opening calculator window...')
         open_calculator()
     elif choice==24:    
+        bubble_sort([int(x) for x in input('Enter numbers separated by spaces: ').split()])
+    elif choice==25:
         print('Exiting the program...')
         break
     else:

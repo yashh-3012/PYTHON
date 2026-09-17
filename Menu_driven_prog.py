@@ -343,8 +343,17 @@ def bubble_sort(arr):
         if not swapped:
             break
         print(f'After pass {i+1}: {arr}')
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+        print(f'After pass {i+1}: {arr}')
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Leaderboard\n23. Calculator\n24.Bubble Sort\n25. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Leaderboard\n23. Calculator\n24.Bubble Sort\n25.Selection Sort\n26. Exit')
     try:
         choice=int(input('enter your choice'))
     except ValueError:
@@ -408,6 +417,8 @@ while True:
     elif choice==24:    
         bubble_sort([int(x) for x in input('Enter numbers separated by spaces: ').split()])
     elif choice==25:
+        selection_sort([int(x) for x in input('Enter numbers separated by spaces: ').split()])
+    elif choice==26:
         print('Exiting the program...')
         break
     else:

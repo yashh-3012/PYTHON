@@ -1,3 +1,4 @@
+from functools import reduce
 import random
 import json
 # SOME RANDOM GAMES JUST FOR REVISION OF MY 12TH
@@ -365,8 +366,16 @@ def insertion_sort(arr):
                 j-=1
             arr[j+1]=key
             print(f'After pass {i+1}: {arr}')
+def map_filter_reduce():
+    numbers = [1, 2, 3, 4, 5]
+    squared = list(map(lambda x: x**2, numbers))
+    even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+    product = reduce(lambda x, y: x * y, numbers)
+    print(f'Squared: {squared}')
+    print(f'Even Numbers: {even_numbers}')
+    print(f'Product of all numbers: {product}')
 while True:
-    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Leaderboard\n23. Calculator\n24.Bubble Sort\n25.Selection Sort\n26. Insertion Sort\n27. Exit')
+    print('1. Finger Cricket\n2. Odd Even\n3. Number Guessing\n4. Rock Paper Scissors\n5.Time\n6. Reverse Number\n7. Check Palindrome\n8.Voting_System\n9. Do-While\n10. Addition\n11. Check AP\n12. List of Cubes\n13. KBC\n14. Fibonacci Series\n15. Set Methods\n16. square root of a no.\n17. square function\n18.word guessing\n19. String Coding and decoding\n20.import_module\n21. Multiplication Table\n22. Leaderboard\n23. Calculator\n24.Bubble Sort\n25.Selection Sort\n26. Insertion Sort\n27. Map, Filter and Reduce\n28. Exit')
     try:
         choice=int(input('enter your choice'))
     except ValueError:
@@ -434,6 +443,8 @@ while True:
     elif choice==26:
         insertion_sort([int(x) for x in input('Enter numbers separated by spaces: ').split()])
     elif choice==27:
+        map_filter_reduce()
+    elif choice==28:
         print('Exiting the program...')
         break
     else:
